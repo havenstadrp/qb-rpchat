@@ -43,7 +43,7 @@ function DisplayMe(mePlayer, text, offsetme)
             local coords = GetEntityCoords(PlayerPedId(), false)
             local dist = Vdist2(coordsMe, coords)
             if dist < 500 then
-                 DrawText3Dme(coordsMe['x'], coordsMe['y'], coordsMe['z']+offsetme-1.250, text)
+                DrawText3Dme(coordsMe['x'], coordsMe['y'], coordsMe['z']+offsetme-1.250, text)
             end
         end
         nbrDisplaying = nbrDisplaying - 1
@@ -66,7 +66,7 @@ function DisplayDo(mePlayer, text, offsetdo)
             local coords = GetEntityCoords(PlayerPedId(), false)
             local dist = Vdist2(coordsMe, coords)
             if dist < 500 then
-                 DrawText3Ddo(coordsMe['x'], coordsMe['y'], coordsMe['z']+offsetdo-1.250, text)
+                DrawText3Ddo(coordsMe['x'], coordsMe['y'], coordsMe['z']+offsetdo-1.250, text)
             end
         end
         nbrDisplaying = nbrDisplaying - 1
@@ -89,7 +89,7 @@ function DisplayDoa(mePlayer, text, offsetdoa)
             local coords = GetEntityCoords(PlayerPedId(), false)
             local dist = Vdist2(coordsMe, coords)
             if dist < 500 then
-                 DrawText3Ddo(coordsMe['x'], coordsMe['y'], coordsMe['z']+offsetdoa-1.250, text)
+                DrawText3Ddo(coordsMe['x'], coordsMe['y'], coordsMe['z']+offsetdoa-1.250, text)
             end
         end
         nbrDisplaying = nbrDisplaying - 1
@@ -105,37 +105,37 @@ function DrawText3Dme(x,y,z, text)
     local fov = (1 / GetGameplayCamFov()) * 100
     local scale = scale * fov
     if onScreen then
-          SetTextScale(0.35, 0.35)
-      SetTextFont(4)
-      SetTextProportional(1)
-      SetTextColour(255, 255, 255, 215)
-      SetTextEntry("STRING")
-      SetTextCentre(1)
-      AddTextComponentString(text)
-      DrawText(_x,_y)
-          local factor = (string.len(text)) / 370
-          DrawRect(_x,_y+0.0135, 0.025+ factor, 0.03, 235, 101, 255, 68)
-      end
-  end
+        SetTextScale(0.35, 0.35)
+        SetTextFont(4)
+        SetTextProportional(1)
+        SetTextColour(255, 255, 255, 215)
+        SetTextEntry("STRING")
+        SetTextCentre(1)
+        AddTextComponentString(text)
+        DrawText(_x,_y)
+        local factor = (string.len(text)) / 370
+        DrawRect(_x,_y+0.0135, 0.025+ factor, 0.03, 235, 101, 255, 68)
+    end
+end
 
 function DrawText3Ddo(x,y,z, text)
-  local onScreen, _x, _y = World3dToScreen2d(x, y, z)
-  local p = GetGameplayCamCoords()
-  local distance = GetDistanceBetweenCoords(p.x, p.y, p.z, x, y, z, 1)
-  local scale = (1 / distance) * 2
-  local fov = (1 / GetGameplayCamFov()) * 100
-  local scale = scale * fov
-  if onScreen then
-		SetTextScale(0.35, 0.35)
-    SetTextFont(4)
-    SetTextProportional(1)
-    SetTextColour(255, 255, 255, 215)
-    SetTextEntry("STRING")
-    SetTextCentre(1)
-    AddTextComponentString(text)
-    DrawText(_x,_y)
-		local factor = (string.len(text)) / 370
-		DrawRect(_x,_y+0.0135, 0.025+ factor, 0.03, 232, 185, 32, 68)
+    local onScreen, _x, _y = World3dToScreen2d(x, y, z)
+    local p = GetGameplayCamCoords()
+    local distance = GetDistanceBetweenCoords(p.x, p.y, p.z, x, y, z, 1)
+    local scale = (1 / distance) * 2
+    local fov = (1 / GetGameplayCamFov()) * 100
+    local scale = scale * fov
+    if onScreen then
+        SetTextScale(0.35, 0.35)
+        SetTextFont(4)
+        SetTextProportional(1)
+        SetTextColour(255, 255, 255, 215)
+        SetTextEntry("STRING")
+        SetTextCentre(1)
+        AddTextComponentString(text)
+        DrawText(_x,_y)
+        local factor = (string.len(text)) / 370
+        DrawRect(_x,_y+0.0135, 0.025+ factor, 0.03, 232, 185, 32, 68)
     end
 end
 
@@ -147,15 +147,15 @@ function DrawText3Ddoa(x,y,z, text)
     local fov = (1 / GetGameplayCamFov()) * 100
     local scale = scale * fov
     if onScreen then
-          SetTextScale(0.35, 0.35)
-      SetTextFont(4)
-      SetTextProportional(1)
-      SetTextColour(255, 255, 255, 215)
-      SetTextEntry("STRING")
-      SetTextCentre(1)
-      AddTextComponentString(text)
-      DrawText(_x,_y)
-          local factor = (string.len(text)) / 370
-          DrawRect(_x,_y+0.0145, 0.030+ factor, 0.03, 232, 185, 32, 68)
-      end
-  end
+        SetTextScale(0.35, 0.35)
+        SetTextFont(4)
+        SetTextProportional(1)
+        SetTextColour(255, 255, 255, 215)
+        SetTextEntry("STRING")
+        SetTextCentre(1)
+        AddTextComponentString(text)
+        DrawText(_x,_y)
+        local factor = (string.len(text)) / 370
+        DrawRect(_x,_y+0.0145, 0.030+ factor, 0.03, 232, 185, 32, 68)
+    end
+end
