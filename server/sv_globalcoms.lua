@@ -60,7 +60,7 @@ end, 'user')
 RegisterServerEvent('qb_rpchat:showCoord')
 AddEventHandler('qb_rpchat:showCoord', function(source, msg)
     TriggerClientEvent('chat:addMessage', source, {
-        template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgba(0, 90, 90, 0.6); border-radius: 10px;"><i class="fas fa-map-marker-alt"></i> GPS: {0}</div>',
+        template = '<div style="padding: 0.5vw; margin: 0.5vw 0; background-color: rgba(0, 90, 90, 0.6); border-radius: 10px;"><i class="fas fa-map-marker-alt"></i> GPS: {0}</div>',
         args = {msg}
     })
 end)
@@ -78,18 +78,18 @@ RegisterCommand('ooc', function(source, args, rawCommand)
     local msg = rawCommand:sub(5)
 
     TriggerClientEvent('chat:addMessage', -1, {
-        template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgba(200, 200, 200, 0.80); border-radius: 10px;"><i class="fas fa-globe"></i> {0}:<br> {1}</div>',
+        template = '<div style="padding: 0.5vw; margin: 0.5vw 0; background-color: rgba(200, 200, 200, 0.80); border-radius: 10px;"><i class="fas fa-globe"></i> {0}:<br> {1}</div>',
         args = {playerName, msg}
     })
 end, false)
 
-RegisterCommand('tweet', function(source, args, rawCommand)
+RegisterCommand('twt', function(source, args, rawCommand)
     local playerName = GetPlayerName(source)
     local msg = rawCommand:sub(4)
     fal = GetCharacterName(source)
 
     TriggerClientEvent('chat:addMessage', -1, {
-        template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgba(28, 160, 242, 0.6); border-radius: 10px;"><i class="fab fa-twitter"></i> @{0}:<br> {1}</div>',
+        template = '<div style="padding: 0.5vw; margin: 0.5vw 0; background-color: rgba(28, 160, 242, 0.6); border-radius: 10px;"><i class="fab fa-twitter"></i> @{0}:<br> {1}</div>',
         args = {fal, msg}
     })
 end, false)
@@ -100,19 +100,19 @@ RegisterCommand('ad', function(source, args, rawCommand)
     fal = GetCharacterName(source)
 
     TriggerClientEvent('chat:addMessage', -1, {
-        template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgba(255 , 255, 0, 0.2); border-radius: 10px;"><i class="fas fa-ad"></i> Ad van:{0}<br> {1}</div>',
+        template = '<div style="padding: 0.5vw; margin: 0.5vw 0; background-color: rgba(255 , 255, 0, 0.2); border-radius: 10px;"><i class="fas fa-ad"></i> Ad van:{0}<br> {1}</div>',
         args = {fal, msg}
     })
 end, false)
 
 -- Anontwt
-RegisterCommand('anontweet', function(source, args, rawCommand)
+RegisterCommand('anontwt', function(source, args, rawCommand)
     local playerName = GetPlayerName(source)
     local msg = rawCommand:sub(8)
     fal = GetCharacterName(source)
 
     TriggerClientEvent('chat:addMessage', -1, {
-        template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgba(28, 160, 242, 0.6); border-radius: 10px;"><i class="fab fa-twitter"></i> @Anoniem:<br> {1}</div>',
+        template = '<div style="padding: 0.5vw; margin: 0.5vw 0; background-color: rgba(28, 160, 242, 0.6); border-radius: 10px;"><i class="fab fa-twitter"></i> @Anoniem:<br> {1}</div>',
         args = {fal, msg}
     })
 end, false)
@@ -125,7 +125,7 @@ end, false)
 --     end
 
 --     TriggerClientEvent('chat:addMessage', -1, {
---         template = '<div style="padding: 0.3vw 0.8vw; margin: 0.5vw 0.5vw 0.5vw 0; border-radius:10px; background-color: rgba(202,40,40, 0.6);"><strong style="font-size: 10pt;"><img src="https://cdn.iconscout.com/icon/free/png-256/skull-737-1074609.png" width="20" height="20" style="position: relative; left: -5px; top:3px;">Blackmarket message:</strong><br><p style="padding-top: .3vw">{0}</p></div>',
+--         template = '<div style="padding: 0.3vw 0.8vw; margin: 0.5vw 0 0.5vw 0.5vw 0; border-radius:10px; background-color: rgba(202,40,40, 0.6);"><strong style="font-size: 10pt;"><img src="https://cdn.iconscout.com/icon/free/png-256/skull-737-1074609.png" width="20" height="20" style="position: relative; left: -5px; top:3px;">Blackmarket message:</strong><br><p style="padding-top: .3vw">{0}</p></div>',
 --         args = {toSay}
 --     })
 -- end, false)
@@ -203,12 +203,12 @@ RegisterCommand('police', function(source, args, rawCommand)
 
     if xPlayer.PlayerData.job.name == 'police' then
         TriggerClientEvent('chat:addMessage', -1, {
-            template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgba(50, 71, 202, 0.9); border-radius: 10px;"><i class="fas fa-bullhorn"></i> Police: {0}</div>',
+            template = '<div style="padding: 0.5vw; margin: 0.5vw 0; background-color: rgba(50, 71, 202, 0.9); border-radius: 10px;"><i class="fas fa-bullhorn"></i> Police: {0}</div>',
             args = {toSay}
         })
     else
         TriggerClientEvent('chat:addMessage', source, {
-            template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgba(205, 0, 0, 0.9); border-radius: 10px;"><i class="fas fa-exclamation"></i>  You need to work in police to use /police <i class="fas fa-exclamation"></i></div>',
+            template = '<div style="padding: 0.5vw; margin: 0.5vw 0; background-color: rgba(205, 0, 0, 0.9); border-radius: 10px;"><i class="fas fa-exclamation"></i>  You need to work in police to use /police <i class="fas fa-exclamation"></i></div>',
             args = {}
         })
     end
