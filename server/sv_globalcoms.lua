@@ -60,7 +60,7 @@ end, 'user')
 RegisterServerEvent('qb_rpchat:showCoord')
 AddEventHandler('qb_rpchat:showCoord', function(source, msg)
     TriggerClientEvent('chat:addMessage', source, {
-        template = '<div style="padding: 0.45vw; margin: 0.05vw; background-color: rgba(0, 90, 90, 0.6); border-radius: 10px;"><i class="fas fa-map-marker-alt"></i> GPS: {0}</div>',
+        template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgba(0, 90, 90, 0.6); border-radius: 10px;"><i class="fas fa-map-marker-alt"></i> GPS: {0}</div>',
         args = {msg}
     })
 end)
@@ -203,12 +203,12 @@ RegisterCommand('police', function(source, args, rawCommand)
 
     if xPlayer.PlayerData.job.name == 'police' then
         TriggerClientEvent('chat:addMessage', -1, {
-            template = '<div style="padding: 0.45vw; margin: 0.05vw; background-color: rgba(50, 71, 202, 0.9); border-radius: 10px;"><i class="fas fa-bullhorn"></i> Police: {0}</div>',
+            template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgba(50, 71, 202, 0.9); border-radius: 10px;"><i class="fas fa-bullhorn"></i> Police: {0}</div>',
             args = {toSay}
         })
     else
         TriggerClientEvent('chat:addMessage', source, {
-            template = '<div style="padding: 0.45vw; margin: 0.05vw; background-color: rgba(205, 0, 0, 0.9); border-radius: 10px;"><i class="fas fa-exclamation"></i>  You need to work in police to use /police <i class="fas fa-exclamation"></i></div>',
+            template = '<div style="padding: 0.5vw; margin: 0.5vw; background-color: rgba(205, 0, 0, 0.9); border-radius: 10px;"><i class="fas fa-exclamation"></i>  You need to work in police to use /police <i class="fas fa-exclamation"></i></div>',
             args = {}
         })
     end
