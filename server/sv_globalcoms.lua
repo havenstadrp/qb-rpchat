@@ -105,7 +105,6 @@ RegisterCommand('ad', function(source, args, rawCommand)
     })
 end, false)
 
--- Anontwt
 RegisterCommand('anontwt', function(source, args, rawCommand)
     local playerName = GetPlayerName(source)
     local msg = rawCommand:sub(8)
@@ -116,19 +115,6 @@ RegisterCommand('anontwt', function(source, args, rawCommand)
         args = {fal, msg}
     })
 end, false)
-
--- -- Black Market
--- RegisterCommand('bm', function(source, args, rawCommand)
---     local toSay = ''
---     for i = 1, #args do
---         toSay = toSay .. args[i] .. ' '
---     end
-
---     TriggerClientEvent('chat:addMessage', -1, {
---         template = '<div style="padding: 0.3vw 0.8vw; margin: 0.5vw 0 0.5vw 0.5vw 0; border-radius:10px; background-color: rgba(202,40,40, 0.6);"><strong style="font-size: 10pt;"><img src="https://cdn.iconscout.com/icon/free/png-256/skull-737-1074609.png" width="20" height="20" style="position: relative; left: -5px; top:3px;">Blackmarket message:</strong><br><p style="padding-top: .3vw">{0}</p></div>',
---         args = {toSay}
---     })
--- end, false)
 
 RegisterCommand('me', function(source, args, raw)
     if source == 0 then
@@ -174,29 +160,6 @@ RegisterCommand('do', function(source, args, raw)
     TriggerClientEvent('3ddo:triggerDisplay', -1, args, source)
 end)
 
--- RegisterCommand('doc', function(source, args, raw)
---     if source == 0 then
---         print('qb_rpchat: you can\'t use this command from rcon!')
---         return
---     end
---     if args == nil then
---         print('source .. args .. rawCommand')
---         return
---     end
---     args = table.concat(args, ' ')
---     local name = GetCharacterName(source)
---     local counter_doc = 0
---     local pocetOpakovani = tonumber(args)
---     if pocetOpakovani < Config.doc then
---         while counter_doc < pocetOpakovani do
---             counter_doc = counter_doc + 1
---             TriggerClientEvent('qb_rpchat:sendDo', -1, source, name, counter_doc .. "/" .. pocetOpakovani, {255, 198, 0})
---             TriggerClientEvent('3ddoa:triggerDisplay', -1, counter_doc .. "/" .. pocetOpakovani, source)
---             Citizen.Wait(2000)
---         end
---     end
--- end)
-
 RegisterCommand('police', function(source, args, rawCommand)
     local xPlayer = QBCore.Functions.GetPlayer(source)
     local toSay = table.concat(args, ' ')
@@ -214,22 +177,22 @@ RegisterCommand('police', function(source, args, rawCommand)
     end
 end, false)
 
--- RegisterCommand('sheriff', function(source, args, rawCommand)
---     local xPlayer = QBCore.Functions.GetPlayer(source)
---     local toSay = table.concat(args, ' ')
+RegisterCommand('vab', function(source, args, rawCommand)
+    local xPlayer = QBCore.Functions.GetPlayer(source)
+    local toSay = table.concat(args, ' ')
 
---     if xPlayer.PlayerData.job.name == 'sheriff' then
---         TriggerClientEvent('chat:addMessage', -1, {
---             template = '<div style="padding: 0.45vw; margin: 0.05vw; background-color: rgba(180, 61, 34, 1); border-radius: 10px;"><i class="fas fa-star"></i> Sheriff: {0}</div>',
---             args = {toSay}
---         })
---     else
---         TriggerClientEvent('chat:addMessage', source, {
---             template = '<div style="padding: 0.45vw; margin: 0.05vw; background-color: rgba(205, 0, 0, 0.9); border-radius: 10px;"><i class="fas fa-exclamation"></i>  You need to work in sheriff to use /sheriff <i class="fas fa-exclamation"></i></div>',
---             args = {}
---         })
---     end
--- end, false)
+    if xPlayer.PlayerData.job.name == 'mechanic' then
+        TriggerClientEvent('chat:addMessage', -1, {
+            template = '<div style="padding: 0.45vw; margin: 0.05vw; background-color: rgba(242, 212, 14, 1); border-radius: 10px; color: #111 !important;"><i class="fas fa-wrench"></i> VAB: {0}</div>',
+            args = {toSay}
+        })
+    else
+        TriggerClientEvent('chat:addMessage', source, {
+            template = '<div style="padding: 0.45vw; margin: 0.05vw; background-color: rgba(205, 0, 0, 0.9); border-radius: 10px;"><i class="fas fa-exclamation"></i>  You need to work in VAB to use /vab <i class="fas fa-exclamation"></i></div>',
+            args = {}
+        })
+    end
+end, false)
 
 RegisterCommand('ambu', function(source, args, rawCommand)
     local xPlayer = QBCore.Functions.GetPlayer(source)
